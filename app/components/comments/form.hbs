@@ -1,0 +1,14 @@
+<form class='new-comment-form' {{on 'submit' this.submitFormHandler}}>
+  {{#if this.showLoader}}
+    <div class='loading'>
+      <LoadingSpinner />
+    </div>
+  {{/if}}
+  <div class='control'>
+    <label htmlFor='comment'>Your Comment</label>
+    <textarea id='comment' rows='5'></textarea>
+  </div>
+  <div class='actions'>
+    <button type='submit' class='btn'>Add Comment</button>
+  </div>
+</form>

@@ -1,0 +1,26 @@
+<Card>
+  <form
+    {{on 'focus' this.formFocusHandler}}
+    class='new-quote-form'
+    {{on 'submit' this.submitFormHandler}}
+  >
+    {{#if @isLoading}}
+      <div class='loading'>
+        <LoadingSpinner />
+      </div>
+    {{/if}}
+    <div class='control'>
+      <label htmlFor='author'>Author</label>
+      <input type='text' id='author' />
+    </div>
+    <div class='control'>
+      <label htmlFor='text'>Text</label>
+      <textarea id='text' rows='5'></textarea>
+    </div>
+    <div class='actions'>
+      <button type='submit' {{on 'click' this.completeFormHandler}} class='btn'>
+        Add Quote
+      </button>
+    </div>
+  </form>
+</Card>

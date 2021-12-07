@@ -1,0 +1,13 @@
+{{#if this.showQuotes}}
+  <Quotes::List @quotes={{this.quotes}} />
+{{else if this.showLoader}}
+  <div class='centered'>
+    <LoadingSpinner />
+  </div>
+{{else if this.showError}}
+  <div class='centered'>
+    <h1>{{this.error}}</h1>
+  </div>
+{{else}}
+  <Quotes::NotFound />
+{{/if}}

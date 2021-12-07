@@ -1,0 +1,29 @@
+{{#if this.error}}
+  <div class='centered'>
+    <h1>{{this.error}}</h1>
+  </div>
+{{else if this.showLoader}}
+  <div class='centered'>
+    <LoadingSpinner />
+  </div>
+{{else if this.quote}}
+  <Quotes::HighlightedQuote {...quote} />
+  <div class='centered'>
+    <LinkTo class='btn--flat' @route='quote.comments' @model={{@model}}>
+      Load comments
+    </LinkTo>
+  </div>
+  <div class='centered'>
+    <LinkTo class='btn--flat' @route='quote' @model={{@model}}>
+      Hide comments
+    </LinkTo>
+  </div>
+  <Comments @quoteId={{@model}} />
+{{else}}
+  <div class='noquotes'>
+    <p>Quote not found</p>
+    <LinkTo class='btn' @route='quotes'>
+      Go back
+    </LinkTo>
+  </div>
+{{/if}}

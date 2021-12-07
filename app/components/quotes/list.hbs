@@ -1,0 +1,19 @@
+<div class='sorting'>
+  <button type='button'>
+    {{#if this.sortAsc}}
+      Sort Descending
+    {{else}}
+      Sort Ascending
+    {{/if}}
+  </button>
+</div>
+<ul class='list'>
+  {{#each this.sortedQuotes as |quote|}}
+    <Quotes::Item
+      @key={{quote.id}}
+      @id={{quote.id}}
+      @author={{quote.author}}
+      @text={{quote.text}}
+    />
+  {{/each}}
+</ul>

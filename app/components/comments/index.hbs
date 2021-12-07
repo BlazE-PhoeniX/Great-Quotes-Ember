@@ -1,0 +1,25 @@
+<section class='comments'>
+  <h2>User Comments</h2>
+  {{#if this.isAddingComment}}
+    <Comments::Form
+      @onHideForm={{this.completeCommentHandler}}
+      @quoteId={{@quoteId}}
+    />
+  {{else}}
+    <button
+      class='btn'
+      {{on 'click' this.startAddCommentHandler}}
+      type='button'
+    >
+      Add a Comment
+    </button>
+  {{/if}}
+
+  {{#if this.showLoader}}
+    <div class='centered'>
+      <LoadingSpinner />
+    </div>
+  {{else if this.showCommentsList}}
+    <Comments::List @comments={{@comments}} />
+  {{/if}}
+</section>

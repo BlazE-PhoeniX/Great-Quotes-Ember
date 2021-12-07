@@ -1,0 +1,5 @@
+<ul class='comments'>
+  {{#each @comments as |comment|}}
+    <Comments::Item @key={{comment.id}} @text={{comment.text}} />
+  {{/each}}
+</ul>
