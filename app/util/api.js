@@ -1,5 +1,6 @@
-const FIREBASE_DOMAIN =
-  'https://react-movies-b45b0-default-rtdb.firebaseio.com';
+import ENV from 'great-quotes-ember/config/environment';
+
+const FIREBASE_DOMAIN = ENV.FIREBASE_DOMAIN;
 
 export async function getAllQuotes() {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
