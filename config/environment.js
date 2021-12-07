@@ -17,7 +17,6 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
-    ENV.FIREBASE_DOMAIN = process.env.FIREBASE_DOMAIN;
   }
 
   if (environment === 'test') {
@@ -33,7 +32,6 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.FIREBASE_DOMAIN = process.env.FIREBASE_DOMAIN;
     // here you can enable a production-specific feature
   }
 
