@@ -1,10 +1,7 @@
-<section class='comments'>
+<section class='comments' {{did-insert this.fetchComments}}>
   <h2>User Comments</h2>
   {{#if this.isAddingComment}}
-    <Comments::Form
-      @onHideForm={{this.completeCommentHandler}}
-      @quoteId={{@quoteId}}
-    />
+    <Comments::Form @onHideForm={{this.hideForm}} @quoteId={{@quoteId}} />
   {{else}}
     <button
       class='btn'
@@ -20,6 +17,6 @@
       <LoadingSpinner />
     </div>
   {{else if this.showCommentsList}}
-    <Comments::List @comments={{@comments}} />
+    <Comments::List @comments={{this.comments}} />
   {{/if}}
 </section>

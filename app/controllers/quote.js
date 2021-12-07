@@ -1,7 +1,10 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
-export default class QuotesController extends Controller {
+export default class QuoteController extends Controller {
+  @service router;
+
   queryParams = ['sort'];
   sort = '';
 
@@ -9,15 +12,15 @@ export default class QuotesController extends Controller {
 
   @tracked showLoader = false;
 
-  get showQuotes() {
-    return this.res.state === 'completed' && this.quotes.length > 0;
-  }
-
-  get quotes() {
+  get quote() {
     return this.res.data;
   }
 
   get error() {
     return this.res.error;
+  }
+
+  get showComments() {
+    return this.router.currentURL.endsWith('comments');
   }
 }

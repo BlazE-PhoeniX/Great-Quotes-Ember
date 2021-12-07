@@ -3,12 +3,12 @@
   <nav class='nav'>
     <ul>
       <li>
-        <LinkTo class='active' @route='quotes'>
+        <LinkTo class={{if this.listActive 'active'}} @route='quotes'>
           All Quotes
         </LinkTo>
       </li>
       <li>
-        <LinkTo class='active' @route='new-quote'>
+        <LinkTo class={{unless this.listActive 'active'}} @route='new-quote'>
           Add a Quote
         </LinkTo>
       </li>

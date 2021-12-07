@@ -1,5 +1,5 @@
 <div class='sorting'>
-  <button type='button'>
+  <button type='button' {{on 'click' this.addQuery}}>
     {{#if this.sortAsc}}
       Sort Descending
     {{else}}
@@ -10,7 +10,6 @@
 <ul class='list'>
   {{#each this.sortedQuotes as |quote|}}
     <Quotes::Item
-      @key={{quote.id}}
       @id={{quote.id}}
       @author={{quote.author}}
       @text={{quote.text}}

@@ -6,7 +6,11 @@
   {{/if}}
   <div class='control'>
     <label htmlFor='comment'>Your Comment</label>
-    <textarea id='comment' rows='5'></textarea>
+    <textarea
+      id='comment'
+      rows='5'
+      {{on 'input' this.updateComment}}
+    ></textarea>
   </div>
   <div class='actions'>
     <button type='submit' class='btn'>Add Comment</button>

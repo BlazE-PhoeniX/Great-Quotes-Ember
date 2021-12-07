@@ -1,6 +1,3 @@
 <div>
-  <Quotes::Form
-    @isLoading={{this.http.request.isRunning}}
-    @onAddQuote={{this.addQuote}}
-  />
+  <Quotes::Form @isLoading={{this.isLoading}} @onAddQuote={{this.addQuote}} />
 </div>

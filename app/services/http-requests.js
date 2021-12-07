@@ -2,22 +2,21 @@ import Service from '@ember/service';
 import { task } from 'ember-concurrency';
 
 export default class HttpRequestsService extends Service {
-  state = '';
-  data = null;
-  error = null;
-
-  @task({ restartable: true })
+  @task
   *request(requestFunction, requestData) {
-    this.state = '';
-    this.data = null;
-    this.error = null;
     try {
       const responseData = yield requestFunction(requestData);
-      this.data = responseData;
-      this.state = 'completed';
+      return {
+        data: responseData,
+        state: 'completed',
+        error: null,
+      };
     } catch (err) {
-      this.error = err;
-      this.state = 'error';
+      return {
+        data: null,
+        state: 'failed',
+        error: err,
+      };
     }
   }
 }

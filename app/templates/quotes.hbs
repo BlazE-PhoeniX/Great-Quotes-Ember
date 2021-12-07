@@ -1,10 +1,10 @@
 {{#if this.showQuotes}}
-  <Quotes::List @quotes={{this.quotes}} />
+  <Quotes::List @quotes={{this.quotes}} @sort={{this.sort}} />
 {{else if this.showLoader}}
   <div class='centered'>
     <LoadingSpinner />
   </div>
-{{else if this.showError}}
+{{else if this.error}}
   <div class='centered'>
     <h1>{{this.error}}</h1>
   </div>
